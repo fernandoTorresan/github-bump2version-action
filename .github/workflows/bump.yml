@@ -18,9 +18,10 @@ jobs:
         id: bump
         uses: ./
       - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
