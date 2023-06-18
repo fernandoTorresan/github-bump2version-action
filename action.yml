@@ -1,0 +1,16 @@
+name: 'Github Bump2version Action'
+description: 'Use the bump2version utility in a Github Action'
+author: 'Fernando Torresan de Oliveira'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+outputs:
+  new_ver:
+    description: 'The new version after running bump2version'
+  old_ver:
+    description: 'The previous version before running bump2version'
+  part:
+    description: 'The part of version which was bumped'
+branding:
+  icon: 'chevrons-up'
+  color: 'blue'
