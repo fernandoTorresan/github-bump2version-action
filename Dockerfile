@@ -10,7 +10,7 @@ RUN apk add --no-cache git bash curl jq
 RUN pip install --no-cache-dir -U pip
 
 # Install bumpversion from pypi - https://pypi.org/project/bump2version/
-RUN pip install --no-cache-dir bump2version
+RUN pip install --no-cache-dir bump2version==1.0.1
 
 COPY entrypoint.sh /entrypoint.sh
 

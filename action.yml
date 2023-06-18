@@ -1,3 +1,4 @@
+---
 name: 'Github Bump2version Action'
 description: 'Use the bump2version utility in a Github Action'
 author: 'Fernando Torresan de Oliveira'
