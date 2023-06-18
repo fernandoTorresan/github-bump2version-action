@@ -10,6 +10,9 @@ RUN apk add --no-cache \
     bash=5.2.15-r5 \
     jq=1.6-r3
 
+# Ref.: https://github.com/actions/runner-images/issues/6775#issuecomment-1410270956
+RUN git config --system --add safe.directory *
+
 # Check to make sure pip is fully upgraded
 RUN pip install --no-cache-dir -U pip==23.1.2
 

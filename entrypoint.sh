@@ -20,6 +20,8 @@ tag=$(git for-each-ref --sort=-v:refname --count=1 --format '%(refname)' refs/ta
 # If we don't have any tags yet, check all of our commit history, otherwise check since the last tag
 if [ -z "$tag" ]
 then
+  echo "Tag: $tag"
+  echo "No tag found:"
   log=$(git log --pretty='%B')
 else
   log=$(git log "$tag"..HEAD --pretty='%B')
@@ -28,6 +30,8 @@ fi
 
 # get current commit hash for tag
 commit=$(git rev-parse HEAD)
+
+echo "Current commit hash for the tag: $commit"
 
 if [ "$tag_commit" == "$commit" ]; then
   echo "No new commits since previous tag. Skipping..."
