@@ -6,6 +6,8 @@ source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
 new_version=${NEW_VERSION:-""}
 
+echo "Starting..."
+
 cd "${GITHUB_WORKSPACE}/${source}" || return
 
 # get latest tag that looks like a semver (with or without v)
@@ -42,9 +44,9 @@ esac
 
 # check if new version is already specified
 if [ -z "$new_version" ]; then
-  raw_output=$(bumpversion --list "$part" --dry-run)
+  raw_output=$(bump2version --list "$part" --dry-run)
 else
-  raw_output=$(bumpversion --list "$part" --dry-run --new-version="$new_version")
+  raw_output=$(bump2version --list "$part" --dry-run --new-version="$new_version")
 fi
 
 old_version=$(echo "$raw_output" | grep -o 'current_version=\S*' | cut -d= -f2)
@@ -67,5 +69,5 @@ if [ "$dryrun" = true ]; then
 else
   git config --global user.email "bumpversion@github-actions"
   git config --global user.name "BumpVersion Action"
-  bumpversion "$part" --new-version="$new_version" --verbose
+  bump2version "$part" --new-version="$new_version" --verbose
 fi
