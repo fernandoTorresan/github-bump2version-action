@@ -6,8 +6,6 @@ source=${SOURCE:-.}
 dryrun=${DRY_RUN:-false}
 new_version=${NEW_VERSION:-""}
 
-echo "Starting..."
-
 cd "${GITHUB_WORKSPACE}/${source}" || return
 
 # get latest tag that looks like a semver (with or without v)
@@ -30,8 +28,6 @@ fi
 
 # get current commit hash for tag
 commit=$(git rev-parse HEAD)
-
-echo "Current commit hash for the tag: $commit"
 
 if [ "$tag_commit" == "$commit" ]; then
   echo "No new commits since previous tag. Skipping..."
