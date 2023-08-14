@@ -6,7 +6,7 @@ LABEL homepage="https://github.com/fernandoTorresan/github-bump2version-action"
 # Install our pre-reqs
 RUN apk add --no-cache \
     git=2.40.1-r0 \
-    curl=8.1.2-r0 \
+    curl=8.2.1-r0 \
     bash=5.2.15-r5 \
     jq=1.6-r3
 
